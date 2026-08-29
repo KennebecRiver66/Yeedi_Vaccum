@@ -8,6 +8,7 @@
   "integration_type": "service",
   "iot_class": "cloud_polling",
   "issue_tracker": "https://github.com/correiorafapc/Yeedi_Vaccum/issues",
-  "requirements": [],
-  "version": "1.0.0"
+  "loggers": ["sleekxmppfs", "sucks", "deebot_client"],
+  "requirements": ["py-sucks==0.9.11", "deebot-client==18.5.1"],
+  "version": "1.1.0"
 }
