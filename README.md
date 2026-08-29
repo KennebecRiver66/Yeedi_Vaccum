@@ -1,6 +1,6 @@
 
 # Yeedi Vacuum Integration
-![Version](https://img.shields.io/badge/version-1.0.0-blue)
+![Version](https://img.shields.io/badge/version-1.1.0-blue)
 ![HACS](https://img.shields.io/badge/HACS-Custom-orange)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
@@ -33,12 +33,31 @@ Copy the `custom_components/yeedi` folder into your Home Assistant config direct
 2. Click "Add Integration"
 3. Search for "Yeedi Vacuum"
 4. Enter your Ecovacs account credentials
+5. If Ecovacs asks to verify this device, enter the code emailed to your
+   account to finish setting up the integration
 
 ## Requirements
 
-- Home Assistant 2026.5+
-- deebot-client 18.3.0
+- Home Assistant 2026.7 or newer
+- deebot-client 18.5.1, installed automatically by Home Assistant
 - Yeedi device linked to Ecovacs account
+
+Device verification needs deebot-client 18.5.0 or newer, and deebot-client
+18.5.x requires `cryptography>=48.0.1`. Home Assistant 2026.6 and older pin an
+older `cryptography`, so the dependency cannot be installed there — upgrade
+Home Assistant to at least 2026.7 (2026.8 already ships deebot-client 18.5.1
+itself).
+
+## Device verification
+
+Ecovacs now requires new clients to be verified before they can log in. The
+first time you set up the integration (and whenever Ecovacs asks again), it
+emails a one-time code to your Ecovacs account and shows a "Verification code"
+step. The verified client ID is stored in the config entry, so it stays valid
+across Home Assistant restarts and you should not be asked again.
+
+If the stored login later stops working, Home Assistant starts a
+re-authentication flow instead of leaving the integration in an error state.
 
 ## Important Notes
 
